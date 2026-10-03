@@ -3,7 +3,7 @@
 .env.*
 !.env.example
 .output
-.svelte-kit
+dist
 .vercel
 build
 coverage

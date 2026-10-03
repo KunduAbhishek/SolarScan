@@ -182,7 +182,7 @@ export async function getLayer(
     },
   };
   try {
-    return get[layerId]();
+    return await get[layerId]();
   } catch (e) {
     console.error(`Error getting layer: ${layerId}\n`, e);
     throw e;

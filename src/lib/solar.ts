@@ -294,3 +294,20 @@ export function showLatLng(point: LatLng) {
 export function showDate(date: Date) {
   return `${date.month}/${date.day}/${date.year}`;
 }
+
+/**
+ * Normalizes anything thrown by the Solar API helpers into a `RequestError`.
+ * The helpers throw the API JSON error body, but network failures throw plain Errors.
+ */
+export function toRequestError(e: unknown): RequestError {
+  if (typeof e === 'object' && e !== null && 'error' in e) {
+    return e as RequestError;
+  }
+  return {
+    error: {
+      code: 0,
+      message: e instanceof Error ? e.message : String(e),
+      status: 'REQUEST_FAILED',
+    },
+  };
+}

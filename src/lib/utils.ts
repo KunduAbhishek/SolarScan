@@ -38,3 +38,22 @@ export function findSolarConfig(
       config.yearlyEnergyDcKwh * panelCapacityRatio * dcToAcDerate >= yearlyKwhEnergyConsumption,
   );
 }
+
+/**
+ * Like findSolarConfig, but when no configuration produces enough energy
+ * it falls back to the largest one instead of returning -1.
+ */
+export function pickSolarConfigId(
+  solarPanelConfigs: SolarPanelConfig[],
+  yearlyKwhEnergyConsumption: number,
+  panelCapacityRatio: number,
+  dcToAcDerate: number,
+) {
+  const id = findSolarConfig(
+    solarPanelConfigs,
+    yearlyKwhEnergyConsumption,
+    panelCapacityRatio,
+    dcToAcDerate,
+  );
+  return id >= 0 ? id : Math.max(solarPanelConfigs.length - 1, 0);
+}
