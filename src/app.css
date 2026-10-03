@@ -323,3 +323,13 @@
 .scrim-text {
   color: var(--md-sys-color-scrim);
 }
+
+.dropdown-item {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface);
+}
+
+.dropdown-item:hover {
+  background-color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-secondary);
+}

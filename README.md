@@ -44,6 +44,9 @@ npm run dev
 
 Starting in developer mode enables a lot of useful tools while developing, but for a production version we first need to build the app.
 
+The app is a static single-page app: `npm run build` type checks it and writes the files to `dist/`.
+`npm run start` serves them on `$PORT` (8080 by default).
+
 ```sh
 # Build the app.
 npm run build
@@ -74,8 +77,8 @@ gcloud run deploy "solar-potential" \
 
 ## Checking your code
 
-You can use `npm run check` to do type checking and check for other common issues.
-You can also use `npm run check:watch` to continuously check your code when you save your changes.
+You can use `npm run typecheck` to do type checking.
+To run the unit tests use `npm run test:unit`, and for the browser tests use `npm run test:integration`.
 
 To check for styling and formatting issues, you can use `npm run lint`.
 To fix any lint issues, use `npm run format` to automatically format all the code base.
@@ -85,7 +88,7 @@ To fix any lint issues, use `npm run format` to automatically format all the cod
 - [Solar API](https://developers.google.com/maps/documentation/solar/overview): Get solar panel configurations, solar potential, and data layers.
 - [Google Maps](https://developers.google.com/maps/documentation/javascript/overview): Display a custom map with the Google Maps JavaScript API.
 - [Material Desgin 3](https://m3.material.io): Material Design 3 [web components](https://github.com/material-components/material-web#readme).
-- [SvelteKit](https://kit.svelte.dev): Compiler framework to develop declarative reactive web apps with [TypeScript](https://www.typescriptlang.org).
+- [React](https://react.dev): Library to develop declarative reactive web apps with [TypeScript](https://www.typescriptlang.org).
 - [Vite](https://vite.dev): Build tool with a fast development experience for modern web projects.
 - [Tailwind](https://tailwindcss.com): CSS framework for design and styling.
 - [ESLint](https://eslint.org): Statically analyze code to quickly find problems.
